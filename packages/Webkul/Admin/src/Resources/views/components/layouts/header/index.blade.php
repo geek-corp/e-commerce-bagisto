@@ -13,20 +13,11 @@
 
         <!-- Logo -->
         <a href="{{ route('admin.dashboard.index') }}" class="flex-shrink-0">
-            @if ($logo = core()->getConfigData('general.design.admin_logo.logo_image'))
-                <img
-                    class="h-8 w-auto sm:h-10"
-                    src="{{ Storage::url($logo) }}"
-                    alt="{{ config('app.name') }}"
-                />
-            @else
-                <img
-                    src="{{ request()->cookie('dark_mode') ? bagisto_asset('images/dark-logo.svg') : bagisto_asset('images/logo.svg') }}"
-                    class="h-8 w-auto sm:h-10"
-                    id="logo-image"
-                    alt="{{ config('app.name') }}"
-                />
-            @endif
+            <img
+                class="h-8 w-auto sm:h-10"
+                src="{{ core()->getConfigData('general.design.admin_logo.logo_image') ? Storage::url(core()->getConfigData('general.design.admin_logo.logo_image')) : (core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg')) }}"
+                alt="{{ config('app.name') }}"
+            />
         </a>
 
         <!-- Mega Search Bar Vue Component -->
@@ -98,7 +89,7 @@
             <x-slot:content class="!p-0">
                 <div class="flex items-center gap-1.5 border border-b-gray-300 px-4 py-2 dark:border-gray-800 sm:px-5 sm:py-2.5">
                     <img
-                        src="{{ url('cache/logo/bagisto.png') }}"
+                        src="{{ core()->getCurrentChannel()->logo_url ?? url('cache/logo/bagisto.png') }}"
                         class="sm:h-6 sm:w-6"
                         width="20"
                         height="20"
@@ -148,20 +139,11 @@
     <!-- Drawer Header -->
     <x-slot:header>
         <div class="flex items-center justify-between">
-            @if ($logo = core()->getConfigData('general.design.admin_logo.logo_image'))
-                <img
-                    src="{{ Storage::url($logo) }}"
-                    class="h-8 w-auto sm:h-10"
-                    alt="{{ config('app.name') }}"
-                />
-            @else
-                <img
-                    src="{{ request()->cookie('dark_mode') ? bagisto_asset('images/dark-logo.svg') : bagisto_asset('images/logo.svg') }}"
-                    class="h-8 w-auto sm:h-10"
-                    id="logo-image"
-                    alt="{{ config('app.name') }}"
-                />
-            @endif
+            <img
+                class="h-8 w-auto sm:h-10"
+                src="{{ core()->getConfigData('general.design.admin_logo.logo_image') ? Storage::url(core()->getConfigData('general.design.admin_logo.logo_image')) : (core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg')) }}"
+                alt="{{ config('app.name') }}"
+            />
         </div>
     </x-slot>
 

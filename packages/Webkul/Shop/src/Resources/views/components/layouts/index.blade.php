@@ -49,7 +49,7 @@
         <link
             rel="icon"
             sizes="16x16"
-            href="{{ core()->getCurrentChannel()->favicon_url ?? bagisto_asset('images/favicon.ico') }}"
+            href="{{ core()->getCurrentChannel()->favicon_url ?? core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/favicon.ico') }}"
         />
 
         @bagistoVite(['src/Resources/assets/css/app.css', 'src/Resources/assets/js/app.js'])

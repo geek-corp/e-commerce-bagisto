@@ -68,7 +68,7 @@
     @else
         <link
             type="image/x-icon"
-            href="{{ bagisto_asset('images/favicon.ico') }}"
+            href="{{ core()->getCurrentChannel()->favicon_url ?? core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/favicon.ico') }}"
             rel="shortcut icon"
             sizes="16x16"
         />

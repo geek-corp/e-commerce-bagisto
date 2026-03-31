@@ -7,19 +7,11 @@
     <div class="flex h-[100vh] items-center justify-center">
         <div class="flex flex-col items-center gap-5">
             <!-- Logo -->
-            @if ($logo = core()->getConfigData('general.design.admin_logo.logo_image'))
-                <img
-                    class="h-10 w-[110px]"
-                    src="{{ Storage::url($logo) }}"
-                    alt="{{ config('app.name') }}"
-                />
-            @else
-                <img
-                    class="w-max" 
-                    src="{{ bagisto_asset('images/logo.svg') }}"
-                    alt="{{ config('app.name') }}"
-                />
-            @endif
+            <img
+                class="h-10 w-auto"
+                src="{{ core()->getConfigData('general.design.admin_logo.logo_image') ? Storage::url(core()->getConfigData('general.design.admin_logo.logo_image')) : (core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg')) }}"
+                alt="{{ config('app.name') }}"
+            />
 
             <div class="box-shadow flex min-w-[300px] flex-col rounded-md bg-white dark:bg-gray-900">
                 <!-- Forget Password Form -->
