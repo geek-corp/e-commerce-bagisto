@@ -66,7 +66,7 @@ RUN composer dump-autoload --optimize --no-dev
 RUN cd packages/Webkul/Admin && npm install && npm run build
 
 # Build Shop assets
-RUN cd packages/Webkul/Shop && npm run build
+RUN cd packages/Webkul/Shop && npm install && npm run build
 
 # ------- Production stage -------
 FROM base AS production
