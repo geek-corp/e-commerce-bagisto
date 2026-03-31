@@ -42,3 +42,15 @@ skills-lock.json
 /vendor
 yarn.lock
 yarn-error.log
+
+# Ralph loop logs
+ralph-log.txt
+progress.txt
+
+# Store setup assets (user-specific)
+setup/
+
+# Docker volumes
+docker/nginx/ssl/*.pem
+docker/nginx/ssl/*.key
+docker/nginx/ssl/*.crt

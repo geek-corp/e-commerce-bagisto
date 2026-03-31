@@ -1,0 +1,26 @@
+{
+    "name": "bagisto/laravel-wompi",
+    "description": "Wompi payment gateway integration for Bagisto (Colombia)",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Étnicos Tienda",
+            "email": "info@etnicostienda.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Webkul\\Wompi\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webkul\\Wompi\\Providers\\WompiServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev"
+}
