@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && docker-php-ext-install -j$(nproc) \
     pdo_mysql \
     gd \
+    calendar \
     zip \
     intl \
     bcmath \
