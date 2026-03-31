@@ -73,10 +73,13 @@ FROM base AS production
 
 COPY --from=build /var/www/html /var/www/html
 
+# Backup public dir for volume population on first run
+RUN cp -a /var/www/html/public /var/www/html/public-build
+
 RUN mkdir -p storage/framework/{cache,sessions,views} \
     storage/logs \
     bootstrap/cache \
-    && chown -R sail:sail storage bootstrap/cache \
+    && chown -R sail:sail storage bootstrap/cache public public-build \
     && chmod -R 775 storage bootstrap/cache
 
 COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
